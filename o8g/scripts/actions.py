@@ -1,6 +1,6 @@
 
 ####################################################
-CounterMarker =("Counter", "578b38fc-2e96-4375-8763-d33bda7b5d19")
+
 	
 def untapAll(group, x = 0, y = 0):
 	mute()
