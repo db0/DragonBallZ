@@ -168,3 +168,4 @@ pip-log.txt
 *.o8p*
 *.o8g*
 *.nupkg*
+*.nupkg
