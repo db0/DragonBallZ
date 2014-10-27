@@ -115,5 +115,82 @@ def drawBottom(group, x = 0, y = 0):
 def shuffle(group):
 	group.shuffle()
   
+#---------------------------------------------------------------------------
+# Phases
+#---------------------------------------------------------------------------
 
+def showCurrentPhase(phaseNR = None): # Just say a nice notification about which phase you're on.
+   if phaseNR: notify(phases[phaseNR])
+   else: notify(phases[num(me.getGlobalVariable('phase'))])
 
+def endMyTurn(opponent = None):
+   if not opponent: opponent = findOpponent()
+   me.setGlobalVariable('phase','0') # In case we're on the last phase (Force), we end our turn.
+   notify("=== {} has ended their turn ===.".format(me))
+   opponent.setActivePlayer() 
+      
+def nextPhase(group = table, x = 0, y = 0, setTo = None):  
+# Function to take you to the next phase. 
+   mute()
+   phase = num(me.getGlobalVariable('phase'))
+   if phase == 5: 
+      endMyTurn()
+      return  
+   else:
+      if not me.isActivePlayer and confirm("Your opponent does not seem to have ended their turn yet. Switch to your turn?"):
+         remoteCall(findOpponent(),'endMyTurn',[me])
+         rnd(1,1000) # Pause to wait until they change their turn
+      phase += 1
+      if phase == 1: goToDraw()
+      elif phase == 2: goToPlanning()
+      elif phase == 3: goToDeclare()
+      elif phase == 4: goToCombat()
+      elif phase == 5: goToRejuv()
+
+def goToDraw(group = table, x = 0, y = 0): # Go directly to the Balance phase
+   mute()
+   me.setGlobalVariable('phase','1')
+   showCurrentPhase(1)
+         
+def goToPlanning(group = table, x = 0, y = 0): # Go directly to the Balance phase
+   mute()
+   me.setGlobalVariable('phase','2')
+   showCurrentPhase(2)
+         
+def goToDeclare(group = table, x = 0, y = 0): # Go directly to the Balance phase
+   mute()
+   me.setGlobalVariable('phase','3')
+   showCurrentPhase(3)
+         
+def goToCombat(group = table, x = 0, y = 0): # Go directly to the Balance phase
+   mute()
+   me.setGlobalVariable('phase','4')
+   showCurrentPhase(4)
+         
+def goToRejuv(group = table, x = 0, y = 0): # Go directly to the Balance phase
+   mute()
+   me.setGlobalVariable('phase','5')
+   showCurrentPhase(5)
+         
+
+#---------------------------------------------------------------------------
+# Meta Functions
+#---------------------------------------------------------------------------
+def findOpponent(position = '0', multiText = "Choose which opponent you're targeting with this effect."):
+   opponentList = fetchAllOpponents()
+   if len(opponentList) == 1: opponentPL = opponentList[0]
+   else:
+      if position == 'Ask':
+         choice = SingleChoice(multiText, [pl.name for pl in opponentList])
+         opponentPL = opponentList[choice]         
+      else: opponentPL = opponentList[num(position)]
+   return opponentPL
+
+def fetchAllOpponents(targetPL = me):
+   opponentList = []
+   if len(getPlayers()) > 1:
+      for player in getPlayers():
+         if player != targetPL: opponentList.append(player) # Opponent needs to be not us, and of a different type. 
+   else: opponentList = [me] # For debug purposes
+   return opponentList   
+   
