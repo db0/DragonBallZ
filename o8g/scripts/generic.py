@@ -23,7 +23,6 @@
 
 import re
 
-playerside = None # Variable to keep track on which side each player is
 playeraxis = None # Variable to keep track on which axis the player is
 
 ### Subscriber lists.
@@ -689,7 +688,7 @@ def cheight(card = None, divisor = 10):
    else: offset = CardHeight / divisor
    return (CardHeight + offset)
 
-def yaxisMove(card):
+def yaxisMove(card = None):
    #debugNotify(">>> yaxisMove(){}".format(extraASDebug())) #Debug
 # Variable to move the cards played by player 2 on a 2-sided table, more towards their own side. 
 # Player's 2 axis will fall one extra card length towards their side.

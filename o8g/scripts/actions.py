@@ -9,7 +9,7 @@ def untapAll(group, x = 0, y = 0):
 		if card.controller == me:
 			card.orientation &= ~Rot90			
 			
-def clearAll(group, x = 0, y = 0):
+def clearAll(group, x = 0, y= 0):
     notify("{} clears all targets and combat.".format(me))
     for card in group:
 		if card.controller == me:
@@ -193,4 +193,33 @@ def fetchAllOpponents(targetPL = me):
          if player != targetPL: opponentList.append(player) # Opponent needs to be not us, and of a different type. 
    else: opponentList = [me] # For debug purposes
    return opponentList   
+
+def playerside():
+   if me.hasInvertedTable(): side = -1
+   else: side = 1   
+   return side
    
+ 
+#------------------------------------------------------------------------------
+# Button and Announcement functions
+#------------------------------------------------------------------------------
+
+def BUTTON_OK(group = None,x=0,y=0):
+   notify("--- {} has no further reactions.".format(me))
+
+def BUTTON_Wait(group = None,x=0,y=0):  
+   notify("--- Wait! {} wants to react.".format(me))
+
+def BUTTON_Actions(group = None,x=0,y=0):  
+   notify("--- {} is waiting for opposing actions.".format(me))
+
+def declarePass(group, x=0, y=0):
+   notify("--- {} Passes".format(me))    
+
+def useCard(card,x=0,y=0):
+   if card.Type == 'Button': # The Special button cards.
+      if card.name == 'Wait!': BUTTON_Wait()
+      elif card.name == 'Actions?': BUTTON_Actions()
+      else: BUTTON_OK()
+      return
+   else: tap(card,x,y)

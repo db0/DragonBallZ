@@ -4,7 +4,7 @@
       name="Dragon Ball Z Trading Card Game" 
       id="383a6ac2-6e52-40a5-980f-fade09e4908b" 
       octgnVersion="3.1.1.0" 
-      version="1.0.0.6"
+      version="1.0.0.10"
       markersize="25"
       tags="Dragon Ball Z, DBZ, DBZ CCG, DBZ TCG, DBZ Card Game"
       description="Dragon Ball Z Trading Card Game, by Panini America, Inc."
@@ -16,7 +16,11 @@
 <script src="scripts/actions.py" />
 <script src="scripts/generic.py" />
 <script src="scripts/constants.py" />
+<script src="scripts/events.py" />
 </scripts>
+<events>
+   <event name="OnLoadDeck" action="loadDeck" />
+</events>
 <fonts>
 </fonts>
 <proxygen definitionsrc="proxy/proxydef.xml">
@@ -42,7 +46,7 @@
    <groupaction menu="Clear targets" shortcut="Esc" execute="clearAll" />
    <groupaction menu="Roll a die" shortcut="Ctrl+R" execute="roll20" />
    <groupaction menu="Flip a coin" shortcut="Ctrl+F" execute="flipCoin" />
-   <cardaction menu="Use Card" default="True" execute="tap"/>
+   <cardaction menu="Use Card" default="True" execute="useCard"/>
    <cardaction menu="Flip Up/Down" execute="flip" />
 	<cardaction menu="Discard" shortcut="Del" execute="discard" />
    <cardaction menu="Add Power Stage" shortcut="F1" execute="addCounter" />
@@ -55,6 +59,12 @@
       <groupaction menu="Jump to Declare Combat." default="False" shortcut="F7" execute="goToDeclare" />
       <groupaction menu="Jump to Combat Step." default="False" shortcut="F8" execute="goToCombat" />
       <groupaction menu="Jump to Rejuvenation Step." default="False" shortcut="F9" execute="goToRejuv" />
+   </groupactions>
+   <groupactions menu="Announcements">
+      <groupaction menu="OK" default="False" execute="BUTTON_OK"  shortcut="Ctrl+1"/>
+      <groupaction menu="Wait!" default="False" execute="BUTTON_Wait" shortcut="Ctrl+2"/>
+      <groupaction menu="Actions?" default="False" execute="BUTTON_Actions" shortcut="Ctrl+3"/>
+      <groupaction menu="Pass." default="False" execute="declarePass" shortcut="Ctrl+Space"/>
    </groupactions>
 </table>
 <player summary="Anger: {#Anger} / Hand: {#Hand}">
