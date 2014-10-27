@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<set xmlns:noNamespaceSchemaLocation="CardSet.xsd" 
+     name="Markers &amp; Tokens" 
+     id="2768310b-7a1d-4fef-beb9-1e7267abecc3"
+     gameId="383a6ac2-6e52-40a5-980f-fade09e4908b" 
+     gameVersion="1.0.0.0" 
+     version="1.0.0.0">
+	<markers>
+		<marker id="d766faa2-b28a-4fca-86c2-b752c0293714" name="Power Stage" />
+   </markers>
+	<cards>
+		<card id="f5f6e310-629e-456f-af29-f8df2d11e6b5" name="OK">
+			<property name="Number" value="" />
+			<property name="Block" value="" />
+			<property name="Block Number" value="" />
+			<property name="Cost" value="" />
+			<property name="Edge Priority" value="" />
+			<property name="Force" value="" />
+			<property name="Side" value="" />
+			<property name="Affiliation" value="" />
+			<property name="Type" value="Button" />
+			<property name="Combat Icons" value="" />
+			<property name="Traits" value="" />
+			<property name="Text" value="" />
+			<property name="Damage Capacity" value="" />
+			<property name="Resources" value="" />
+			<property name="AutoScript" value="" />
+			<property name="AutoAction" value="" />
+		</card>
+		<card id="54afa74e-b2c4-4010-b407-39909f55481a" name="Wait!">
+			<property name="Number" value="" />
+			<property name="Block" value="" />
+			<property name="Block Number" value="" />
+			<property name="Cost" value="" />
+			<property name="Edge Priority" value="" />
+			<property name="Force" value="" />
+			<property name="Side" value="" />
+			<property name="Affiliation" value="" />
+			<property name="Type" value="Button" />
+			<property name="Combat Icons" value="" />
+			<property name="Traits" value="" />
+			<property name="Text" value="" />
+			<property name="Damage Capacity" value="" />
+			<property name="Resources" value="" />
+			<property name="AutoScript" value="" />
+			<property name="AutoAction" value="" />
+		</card>
+		<card id="a4f448b9-449c-40d1-b387-301e3a1b5fc6" name="Actions?">
+			<property name="Number" value="" />
+			<property name="Block" value="" />
+			<property name="Block Number" value="" />
+			<property name="Cost" value="" />
+			<property name="Edge Priority" value="" />
+			<property name="Force" value="" />
+			<property name="Side" value="" />
+			<property name="Affiliation" value="" />
+			<property name="Type" value="Button" />
+			<property name="Combat Icons" value="" />
+			<property name="Traits" value="" />
+			<property name="Text" value="" />
+			<property name="Damage Capacity" value="" />
+			<property name="Resources" value="" />
+			<property name="AutoScript" value="" />
+			<property name="AutoAction" value="" />
+		</card>
+   </cards>
+</set>
